@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex">
+  <input
+    type="text"
+    formControlName="content"
+    class="w-100"
+    placeholder="What needs to be done?"
+    (keyup.enter)="onSubmit()"
+    [ngClass]="{ 'is-invalid': f?.['content'] }"
+  />
+  <div
+    *ngIf="form.touched && f?.['content']?.errors"
+    class="w-50 d-flex justify-content-end pl-1 invalid-description"
+  >
+    <div *ngIf="f?.['content']?.errors?.['required']">Content is required</div>
+    <div *ngIf="f?.['content']?.errors?.['minlength']">
+      Minimum length should be
+      {{f?.['content']?.errors?.['minlength'].requiredLength}}
+    </div>
+    <div *ngIf="f?.['content']?.errors?.['maxlength']">
+      Maximum length should be
+      {{f?.['content']?.errors?.['maxlength'].requiredLength}}
+    </div>
+  </div>
+</form>

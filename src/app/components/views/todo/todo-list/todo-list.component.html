@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center">
+  <app-todo-input></app-todo-input>
+</div>
+
+<app-todo-item
+  *ngFor="let todo of todos$ | async"
+  [todo]="todo"
+  (changeStatus)="onChangeStatus($event)"
+  (editTodo)="onEditTodo($event)"
+  (deleteTodo)="onDeleteTodo($event)"
+></app-todo-item>
+
+<small class="instruction text-center">
+  <em>Press Enter to add - edit todo</em>
+</small>
