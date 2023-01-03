@@ -32,7 +32,7 @@ export class TodoService extends CrudService<Todo> {
     const newTodo = new Todo(1, uuid(), title);
     this.add(newTodo).subscribe({
       next: (res) => {
-        this.todos.unshift(res);
+        this.todos.unshift(newTodo);
         this.updateTodosData();
       },
       error: (err) => alert('Something wrong, please try again'),

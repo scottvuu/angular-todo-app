@@ -26,10 +26,6 @@ export class TodoListComponent implements OnInit {
   }
 
   onChangeStatus(todo: Todo) {
-    const payload = {
-      ...todo,
-      isCompleted: !todo.completed,
-    };
     this.todoService.editTodo(todo);
   }
 }
